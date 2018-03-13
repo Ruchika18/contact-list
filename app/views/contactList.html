@@ -1,0 +1,34 @@
+<div>
+    <h3>Contact List</h3>
+</div>
+<hr/>
+<div>
+    <label>Quick Find Contacts:</label>
+    <input type="search" placeholder="Type Here" ng-model="contactSearch">
+    <button type="button" class="pull-right btn" onclick="location.href='#!/contact/form';">Add Contact</button>
+</div>
+<br/>
+<div ng-shiw ="dataLoaded">
+    <table class="table table-striped table-bordered">
+        <thead>
+	<tr>
+		<th ng-repeat="heading in tableHeading">{{heading.name}}
+		</th>
+	</tr>
+        </thead>
+	<tr ng-repeat="contact in contactList  |  filter: paginate | filter: contactSearch ">
+		<td>{{contact.id}}
+		</td>
+		<td>{{contact.name}}
+		</td>
+		<td><div ng-repeat="email in contact.emailId">{{email.type}}: {{email.emailId}}</div>
+		</td>
+        <td><div ng-repeat="phoneNo in contact.contactNo">{{phoneNo.type}}: {{phoneNo.phoneNo}}</div>
+		</td>
+	</tr>
+</table>
+<pagination class="pull-right" total-items="totalItems" ng-model="currentPage"
+          max-size="10" boundary-links="true"
+          items-per-page="numPerPage" class="pagination-sm">
+</pagination>
+</div>

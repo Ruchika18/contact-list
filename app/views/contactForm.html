@@ -1,0 +1,48 @@
+<div>
+    <h3>Contact Form</h3>
+</div>
+<hr/>
+<div>
+    <button type="button" class="pull-right btn" onclick="location.href='#!/contact/form';">Add Contact</button>
+</div>
+<br/>
+<div>
+    <form novalidate role="form" name="contactForm">
+    <div class="form-group form-inline col-form-label">
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" ng-model="contact.firstName"
+               class="form-control" ng-minlength="1" ng-required="true"/>
+    </div>
+    <div class="form-group form-inline">
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" ng-model="contact.lastName"
+               class="form-control" ng-minlength="1" ng-required="true" />
+    </div>
+    <div class="form-group form-inline">
+        <label for="EmailID">Email: </label>
+        <span ng-click="addEmail()" class="glyphicon glyphicon-plus-sign"></span>
+    </div>
+    <hr/>
+        <div ng-repeat="item in contact.emailID" class="form-group form-inline">
+            <select ng-model="item.type" ng-options="item for item in types" ></select>
+            <input type="email" name="EmailID" ng-model="item.emailId"
+               class="form-control" ng-minlength="1" ng-required="true"  />
+                <span class="glyphicon glyphicon-minus-sign" ng-click="removeEmail()"></span>
+        </div>
+    </div>
+    <div class="form-group form-inline">
+        <label for="phoneNo">Phone No: </label>
+        <span ng-click="addPhone()" class="glyphicon glyphicon-plus-sign"></span>
+    </div>
+    <hr/>
+    <div ng-repeat="item in contact.phoneNo" class="form-group form-inline">
+      <select ng-model="item.type" ng-options="item for item in types" ></select>
+      <input type="text" name="phoneNo" ng-model="item.phoneNo" class="form-control" ng-minlength="1" ng-required="true"/>
+      <span class="glyphicon glyphicon-minus-sign" ng-click="removePhone()"></span>
+    </div>
+    <div class="form-group form-inline">
+    <input type="button" value="Save" ng-disabled="contactForm.$invalid" ng-click="save(contactInfo)" class="btn btn-default" />
+    <input type="button" value="Cancel" onclick="location.href='#!/contact/list';" class="btn btn-default" />
+    </div>
+    </form>
+</div>
