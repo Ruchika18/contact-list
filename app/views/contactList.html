@@ -21,9 +21,9 @@
 		</td>
 		<td>{{contact.name}}
 		</td>
-		<td>Work: {{contact.emailId.work}}<br/> Personal: {{contact.emailId.personal}}
+		<td><div ng-repeat="email in contact.emailId">{{email.type}}: {{email.emailId}}</div>
 		</td>
-        <td>Work: {{contact.contactNo.work}}<br/> Personal: {{contact.contactNo.personal}}
+        <td><div ng-repeat="phoneNo in contact.contactNo">{{phoneNo.type}}: {{phoneNo.phoneNo}}</div>
 		</td>
 	</tr>
 </table>

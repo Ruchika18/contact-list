@@ -18,6 +18,10 @@ app.config(function($routeProvider) {
         templateUrl : './views/main.html',
         controller: 'MainCtrl'
     })
+    .when('/dashboard', {
+        templateUrl : './views/main.html',
+        controller: 'MainCtrl'
+    })
      .when('/contact/form', {
         templateUrl : './views/contactForm.html',
         controller: 'ContactFormCtrl'

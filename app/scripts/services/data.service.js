@@ -15,7 +15,7 @@
                headers : {'Accept' : 'application/json'}
         };
         function getContactInfo(){
-            return $http.get('http://localhost:3000/contact',config);
+            return $http.get('/contact',config);
         }
         return service;
     }
